@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://MainScenes/Background.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Tiles/Arcology.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Levels/Level4.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Sprite/side_wall.tscn" type="PackedScene" id=14]
+[ext_resource path="res://MainScenes/MainCamera.gd" type="Script" id=15]
 [ext_resource path="res://Levels/Level5.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Cutscene/EndOfBossCutscene.tscn" type="PackedScene" id=17]
 [ext_resource path="res://HUD/Disclaimer.tscn" type="PackedScene" id=18]
@@ -135,6 +136,7 @@ margin_right = 554.576
 margin_bottom = 512.497
 
 [node name="InstructionsScreen" parent="." instance=ExtResource( 27 )]
+visible = false
 margin_left = 63.1573
 margin_top = 18.8364
 margin_right = 682.157
@@ -143,6 +145,11 @@ margin_bottom = 915.836
 [node name="MainCamera" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
+script = ExtResource( 15 )
+
+[node name="ShakeTimer" type="Timer" parent="MainCamera"]
+wait_time = 0.8
+one_shot = true
 [connection signal="timeout" from="KludgeTimer" to="." method="_on_KludgeTimer_timeout"]
 [connection signal="pressed" from="TitleScreen/NewGame" to="." method="NewGame"]
 [connection signal="pressed" from="TitleScreen/Instructions" to="." method="_on_Instructions_pressed"]
@@ -156,6 +163,7 @@ current = true
 [connection signal="pressed" from="PauseMenu/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="Thanks/Button" to="." method="_on_GameOver_return_to_menu"]
 [connection signal="pressed" from="InstructionsScreen/Button" to="." method="_on_Instructions_Return_pressed"]
+[connection signal="timeout" from="MainCamera/ShakeTimer" to="MainCamera" method="_on_ShakeTImer_timeout"]
 
 [editable path="TitleScreen"]
 

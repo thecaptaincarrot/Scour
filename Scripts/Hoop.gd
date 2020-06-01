@@ -114,7 +114,6 @@ func _process(delta):
 			if $StunTimer.is_stopped():
 				$StunTimer.start()
 			var collision_info = move_and_collide(velocity * delta)
-			print(velocity)
 			if collision_info:
 				velocity = velocity.bounce(collision_info.normal)
 		KILLING:

@@ -13,7 +13,7 @@ enum {SPAWNING, ATTACKING, DYING, DEAD}
 var state
 
 var FPS = 10.0
-var kill_time = 60.0 #The maximum FPS of the animation before it deletes the enemy
+var kill_time = 120.0 #The maximum FPS of the animation before it deletes the enemy
 var kill_speed = 20.0
 
 #Background moves at 30 units per second
@@ -61,8 +61,8 @@ func _process(delta):
 			$RingSprite.show()
 			$RingSprite.play()
 			
-			if FPS <= 60.0:
-				FPS += kill_speed * delta
+			if FPS <= kill_time:
+				FPS += kill_speed * delta * 2
 			else:
 				emit_signal("kill",value)
 				$DeathSound.play()

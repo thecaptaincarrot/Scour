@@ -1,7 +1,7 @@
 extends Control
 
 var killspeed
-var killspeedtime
+var killspeedtime = {}
 var speed
 var recoveryspeed
 var bounce
@@ -43,7 +43,10 @@ func _ready():
 	bounce_cost_dict =  MainNode.BOUNCE_COST
 	
 	killspeed = MainNode.KILLSPEED_VALUES
-	killspeedtime = {1 : 2.5, 2 : 2.0, 3: 1.75, 4: 1.5} #Recalculate this instead of manual entry eventually
+	killspeedtime[1] = 50 / killspeed[1]  #Recalculate this instead of manual entry eventually
+	killspeedtime[2] = 50 / killspeed[2]
+	killspeedtime[3] = 50 / killspeed[3]
+	killspeedtime[4] = 50 / killspeed[4]
 	speed = MainNode.SPEED_VALUES
 	recoveryspeed = MainNode.RECOVERY_VALUES
 	bounce = MainNode.BOUNCE_VALUES

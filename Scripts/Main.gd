@@ -36,7 +36,7 @@ var level = 0
 const SCROLL_SPEED = 100.0
 
 #Upgrade information
-const KILLSPEED_VALUES = {1: 20, 2 : 25, 3 :  28.57, 4 : 33.33}
+const KILLSPEED_VALUES = {1: 33.33, 2 : 50, 3 :  62.5, 4 : 83.3333}
 const SPEED_VALUES = {1 : 400 , 2 : 500, 3: 800, 4: 700 }
 const RECOVERY_VALUES = {1 : 50.0, 2 : 75.0, 3 : 100, 4: 125}
 const BOUNCE_VALUES = {1 : 0, 2 : 1, 3 : 2, 4 : 3}
@@ -87,6 +87,7 @@ func _process(_delta):
 			$MainHUD.show()
 			$PauseMenu.hide()
 			get_tree().paused = false
+			draw_lives()
 		CUTSCENE:
 			$Mobs.set_process(false)
 			persistant_player.position = lerp(persistant_player.position, Vector2(screen_size.x / 2, screen_size.y * 3 / 4),.05)
@@ -164,8 +165,8 @@ func NewGame():
 	persistant_player.position.x = screen_size.x / 2
 	persistant_player.position.y = screen_size.y * 3 / 4
 	
-	persistant_player.connect("PlayerKilled", self, "game_over")
-	persistant_player.connect("PlayedHit",self, "CameraShake")
+	persistant_player.connect("PlayerKilled", self, "life_down")
+	persistant_player.connect("PlayerHit",$MainCamera, "_initiate_shake")
 	
 	update_player_stats()
 	$Mobs/Player.add_child(persistant_player)
@@ -370,6 +371,8 @@ func _on_Continue_pressed():
 	clear_screen()
 	score = 0
 	favor = 0
+	lives = 3
+	draw_lives()
 	$GameOver.hide()
 	go_to_next_level()
 
@@ -386,10 +389,63 @@ func _on_Instructions_Return_pressed():
 	$InstructionsScreen.hide()
 
 
-func CameraShake():
-	var number_of_transforms = 10
-	var rng = RandomNumberGenerator.new()
-	for _i in range(0,number_of_transforms):
-		print("aaaaaaaaaaaaaaa")
-		$MainCamera.position = lerp(Vector2(0,0),Vector2(rng.randf(),rng.randf()),1.0)
-		
+func draw_lives():
+	var life1 = $MainHUD/LivesLabel/Life1
+	var life2 = $MainHUD/LivesLabel/Life2
+	var life3 = $MainHUD/LivesLabel/Life3
+	var life4 = $MainHUD/LivesLabel/Life4
+	
+	#Just brute force it to avoid flashing and flickering
+	match lives:
+		0:
+			life1.hide()
+			life2.hide()
+			life3.hide()
+			life4.hide()
+		1:
+			life1.show()
+			life2.hide()
+			life3.hide()
+			life4.hide()
+		2:
+			life1.show()
+			life2.show()
+			life3.hide()
+			life4.hide()
+		3:
+			life1.show()
+			life2.show()
+			life3.show()
+			life4.hide()
+		4:
+			life1.show()
+			life2.show()
+			life3.show()
+			life4.show()
+
+
+func life_down():
+	#clear hoops
+	for i in range(0,$Mobs/Hoops.get_child_count()):
+		if $Mobs/Hoops.get_child(i) != persistant_player:
+			$Mobs/Hoops.get_child(i).queue_free()
+	#don't let anything drop rings anymore
+	for i in range(0,$Mobs/Enemies.get_child_count()):
+		if $Mobs/Enemies.get_child(i).state == $Mobs/Enemies.get_child(i).DYING:
+			$Mobs/Enemies.get_child(i).drop_ring = false
+	
+	if lives > 0:
+		lives -= 1
+		var t = Timer.new()
+		t.set_wait_time(1)
+		t.set_one_shot(true)
+		self.add_child(t)
+		t.start()
+		yield(t,"timeout")
+		t.queue_free()
+		persistant_player.position.x = screen_size.x / 2
+		persistant_player.position.y = screen_size.y * 3 / 4
+		persistant_player.rings = 3
+		persistant_player.state = persistant_player.FINE
+	else:
+		game_over()

@@ -1,13 +1,50 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/MainHUD.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/life.png" type="Texture" id=2]
+[ext_resource path="res://HUD/BasicHudShape.png" type="Texture" id=3]
 
 [node name="MainHUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.54001
-margin_right = -1.54004
+margin_left = 0.304625
+margin_top = -0.289223
+margin_right = 0.304626
+margin_bottom = -0.289246
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LivesBackground" type="TextureRect" parent="."]
+margin_left = 263.575
+margin_top = -9.80887
+margin_right = 413.575
+margin_bottom = 54.1911
+rect_scale = Vector2( 1.279, 0.901 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreBackground" type="TextureRect" parent="."]
+margin_left = -46.24
+margin_top = -8.069
+margin_right = 103.76
+margin_bottom = 55.931
+rect_scale = Vector2( 1.201, 0.579 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelBackground" type="TextureRect" parent="."]
+margin_left = 598.038
+margin_top = -8.069
+margin_right = 748.038
+margin_bottom = 55.931
+rect_scale = Vector2( 1.201, 0.579 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -15,9 +52,12 @@ __meta__ = {
 [node name="Score" type="Label" parent="."]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 760.0
+margin_right = 56.0
 margin_bottom = 24.0
 text = "Score:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Scorecounter" type="Label" parent="Score"]
 margin_left = 50.0
@@ -43,3 +83,58 @@ margin_left = 2.09125
 margin_top = -7.0
 margin_right = 42.0912
 margin_bottom = 7.0
+
+[node name="LivesLabel" type="Label" parent="."]
+margin_left = 340.0
+margin_top = 5.0
+margin_right = 380.0
+margin_bottom = 19.0
+text = "Lives"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Life1" type="TextureRect" parent="LivesLabel"]
+margin_left = -26.1547
+margin_top = 7.25034
+margin_right = 37.8453
+margin_bottom = 71.2503
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Life2" type="TextureRect" parent="LivesLabel"]
+margin_left = -4.98816
+margin_top = 7.01251
+margin_right = 59.0118
+margin_bottom = 71.0125
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Life3" type="TextureRect" parent="LivesLabel"]
+margin_left = 16.1786
+margin_top = 7.25034
+margin_right = 80.1786
+margin_bottom = 71.2503
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Life4" type="TextureRect" parent="LivesLabel"]
+margin_left = 37.8207
+margin_top = 7.01251
+margin_right = 101.821
+margin_bottom = 71.0125
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

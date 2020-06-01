@@ -2,7 +2,7 @@ extends Node2D
 
 export (PackedScene) var Hoop
 
-enum {FINE, HURT, DEAD, DISABLED}
+enum {FINE, HURT, DEAD, DISABLED, RESET}
 var state = DISABLED
 
 var rings = 3
@@ -55,6 +55,8 @@ func _process(delta):
 				blink_count = 0
 				blink_timer = 0
 				state = FINE
+		RESET:
+			pass
 
 
 func check_rings(currentrings):
@@ -142,6 +144,7 @@ func _on_Area2D_area_entered(area):
 	if area.type == "PickupHoop" or area.type == "BouncingHoop" or area.type == "FlyingHoop2":
 		rings += 1
 	if (area.type == "AttackingEnemy" or area.type == "Bullet" or area.type == "Boss") and state == FINE:
+		emit_signal("PlayerHit")
 		if rings > 0:
 			var new_hoop = Hoop.instance()
 			new_hoop.state = new_hoop.STUNNED
