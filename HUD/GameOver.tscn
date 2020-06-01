@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://HUD/GameOver.gd" type="Script" id=1]
+[ext_resource path="res://fonts/BasicFont.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0431373, 0.0392157, 0.0352941, 0.6 )
+
+[node name="GameOver" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -477.871
+margin_right = 360.0
+margin_bottom = 481.129
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.815
+margin_top = -146.314
+margin_right = 144.185
+margin_bottom = 135.686
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnToMenu" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -73.0
+margin_top = -10.0
+margin_right = 73.0
+margin_bottom = 10.0
+text = "Return to Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.5
+margin_top = -41.0
+margin_right = 34.5
+margin_bottom = -21.0
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FinalScore" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = 50.0
+margin_right = 20.0
+margin_bottom = 64.0
+text = "Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -85.5
+margin_right = 85.5
+margin_bottom = 31.0
+custom_fonts/font = ExtResource( 2 )
+text = "GAME OVER"
+[connection signal="pressed" from="Panel/ReturnToMenu" to="." method="_on_Button_pressed"]

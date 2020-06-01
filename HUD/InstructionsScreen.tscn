@@ -1,0 +1,154 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fonts/LibreBaskerville-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://HUD/Instructionals/Kill.png" type="Texture" id=2]
+[ext_resource path="res://HUD/Instructionals/Boss.png" type="Texture" id=3]
+[ext_resource path="res://HUD/Instructionals/Movement.png" type="Texture" id=4]
+[ext_resource path="res://HUD/Instructionals/GameOver.png" type="Texture" id=5]
+[ext_resource path="res://HUD/Instructionals/Recover.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 1 )
+
+[node name="InstructionsScreen" type="Panel"]
+self_modulate = Color( 1, 1, 1, 0.784314 )
+margin_right = 619.0
+margin_bottom = 897.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Titles" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 1 )
+text = "Instructions:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlavorText" type="Label" parent="."]
+visible = false
+margin_left = 55.0
+margin_top = 60.0
+margin_right = 545.0
+margin_bottom = 125.0
+text = "THE LORD had seen the wickedness and blasphemies of Man and it displeased Him. THE LORD said \"I grow tired of the wickedness of Man who turn their back on me and my covenant. I will send my Angels to blot out the men that I created for I regret what they have become.\"
+
+And he called the Ophanim to him and sent them to scour the world as he had commanded"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Movement" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 40.9996
+margin_top = -279.998
+margin_right = 80.9996
+margin_bottom = -265.998
+text = "Use the wasd or arrow keys to move the Ophanim"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MovementIMG" type="TextureRect" parent="Movement"]
+margin_left = 369.119
+margin_top = -59.5645
+margin_right = 497.119
+margin_bottom = 68.4355
+texture = ExtResource( 4 )
+
+[node name="Attacking" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 41.0
+margin_top = -198.5
+margin_right = 574.0
+margin_bottom = -167.5
+text = "Click to shoot one of your three rings in that direction. If the ring strikes an enemy, it will stun it and after a few seconds destroy it."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AttackingIMG" type="TextureRect" parent="Attacking"]
+margin_left = 331.193
+margin_top = 21.2807
+margin_right = 527.193
+margin_bottom = 149.281
+texture = ExtResource( 2 )
+
+[node name="Revoery" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 39.195
+margin_top = -34.423
+margin_right = 572.195
+margin_bottom = -3.423
+text = "Dropped Rings can be collected by moving over them"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RecoveryIMG" type="TextureRect" parent="Revoery"]
+margin_left = 323.496
+margin_top = 30.8755
+margin_right = 519.496
+margin_bottom = 94.8755
+texture = ExtResource( 6 )
+
+[node name="GameOver" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 39.195
+margin_top = 129.599
+margin_right = 572.195
+margin_bottom = 160.599
+text = "If you are struck by an enemy while you have no rings protecting your Nuclear Soul, you will be destroyed"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverIMG" type="TextureRect" parent="GameOver"]
+margin_left = 331.397
+margin_top = 40.9799
+margin_right = 527.397
+margin_bottom = 104.98
+texture = ExtResource( 5 )
+
+[node name="Bosses" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 35.7656
+margin_top = 271.61
+margin_right = 568.766
+margin_bottom = 302.61
+text = "Some more powerful enemies may require two or more rings to stun and destroy!"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BossesIMG" type="TextureRect" parent="Bosses"]
+margin_left = 367.023
+margin_top = 28.1404
+margin_right = 495.023
+margin_bottom = 156.14
+texture = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -51.5
+margin_top = -68.0
+margin_right = 50.5
+margin_bottom = -19.0
+text = "Return"

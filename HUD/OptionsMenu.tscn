@@ -1,0 +1,129 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/LibreBaskerville-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/BasicFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://HUD/OptionsMenu.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[node name="OptionsMenu" type="Panel"]
+self_modulate = Color( 1, 1, 1, 0.784314 )
+margin_right = 531.0
+margin_bottom = 302.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 2 )
+text = "OPTIONS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXVolume" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -71.5
+margin_right = 294.0
+margin_bottom = -40.5
+custom_fonts/font = ExtResource( 2 )
+text = "SFX Volume:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFX-" type="Button" parent="SFXVolume"]
+margin_left = 220.0
+margin_right = 240.0
+margin_bottom = 23.0
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Volume" type="Label" parent="SFXVolume"]
+margin_left = 250.0
+margin_right = 290.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 1 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFX+" type="Button" parent="SFXVolume"]
+margin_left = 285.0
+margin_right = 305.0
+margin_bottom = 23.0
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicVolume" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -21.5
+margin_right = 213.0
+margin_bottom = 9.5
+custom_fonts/font = ExtResource( 2 )
+text = "Music Volume:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music-" type="Button" parent="MusicVolume"]
+margin_left = 220.0
+margin_right = 240.0
+margin_bottom = 23.0
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Volume" type="Label" parent="MusicVolume"]
+margin_left = 250.0
+margin_right = 290.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 1 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music+" type="Button" parent="MusicVolume"]
+margin_left = 285.0
+margin_right = 305.0
+margin_bottom = 23.0
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Return" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -63.5
+margin_top = -43.0
+margin_right = 45.5
+margin_bottom = -10.0
+text = "Return"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="SFXVolume/SFX-" to="." method="_on_SFX_minus_pressed"]
+[connection signal="pressed" from="SFXVolume/SFX+" to="." method="_on_SFX_plus_pressed"]
+[connection signal="pressed" from="MusicVolume/Music-" to="." method="_on_Music_minus_pressed"]
+[connection signal="pressed" from="MusicVolume/Music+" to="." method="_on_Music_plus_pressed"]
+[connection signal="pressed" from="Return" to="." method="_on_Return_pressed"]

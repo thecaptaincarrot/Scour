@@ -1,0 +1,310 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://Sprite/Boss1_1.png" type="Texture" id=1]
+[ext_resource path="res://MainScenes/Explosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/Bosses/PillarsOfResistance.gd" type="Script" id=3]
+[ext_resource path="res://Enemies/Bosses/Hamrayah.tscn" type="PackedScene" id=4]
+[ext_resource path="res://MainScenes/Hoop.tscn" type="PackedScene" id=5]
+[ext_resource path="res://MainScenes/Bullet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/ObsoletedEnemies/TurretEnemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Tiles/Arcology.png" type="Texture" id=8]
+[ext_resource path="res://Texts/HamrayahAndMord1.png" type="Texture" id=9]
+[ext_resource path="res://Sprite/Boss1_1a.png" type="Texture" id=10]
+
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 896, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 768, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 640, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 512, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 896, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 512, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 640, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 768, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 896, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 256, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=28]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": false,
+"name": "Demerging",
+"speed": 16.0
+}, {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "Default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": false,
+"name": "Emerging",
+"speed": 16.0
+}, {
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"loop": false,
+"name": "MouthOpen",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 23 ) ],
+"loop": true,
+"name": "Closed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"loop": false,
+"name": "MouthClose",
+"speed": 10.0
+} ]
+
+[sub_resource type="Animation" id=29]
+length = 4.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.831373, 0.803922, 0.776471, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="PillarsOfResistance" type="Node2D"]
+script = ExtResource( 3 )
+Turret = ExtResource( 7 )
+
+[node name="PortHole1" type="Sprite" parent="."]
+position = Vector2( 110, 250 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+
+[node name="PortHole2" type="Sprite" parent="."]
+position = Vector2( 610, 250 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+
+[node name="PortHole3" type="Sprite" parent="."]
+position = Vector2( 610, 800 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+
+[node name="PortHole4" type="Sprite" parent="."]
+position = Vector2( 110, 800 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+
+[node name="TurretSpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="Hamrayah" parent="." instance=ExtResource( 4 )]
+visible = false
+Hoop = ExtResource( 5 )
+Bullet = ExtResource( 6 )
+Explosion = ExtResource( 2 )
+
+[node name="ringSprite" parent="Hamrayah" index="3"]
+frame = 2
+
+[node name="ringSprite2" parent="Hamrayah" index="4"]
+frame = 2
+
+[node name="ringSprite3" parent="Hamrayah" index="5"]
+frame = 2
+
+[node name="PauseTimer" parent="Hamrayah" index="7"]
+wait_time = 0.75
+
+[node name="StunnedTimer" parent="Hamrayah" index="10"]
+wait_time = 1.5
+
+[node name="Mord" parent="." instance=ExtResource( 4 )]
+visible = false
+Hoop = ExtResource( 5 )
+Bullet = ExtResource( 6 )
+Explosion = ExtResource( 2 )
+
+[node name="GolemSprite" parent="Mord" index="0"]
+frames = SubResource( 28 )
+
+[node name="ringSprite" parent="Mord" index="3"]
+frame = 2
+
+[node name="ringSprite2" parent="Mord" index="4"]
+frame = 2
+
+[node name="ringSprite3" parent="Mord" index="5"]
+frame = 2
+
+[node name="PauseTimer" parent="Mord" index="7"]
+wait_time = 0.5
+
+[node name="UndergroundTimer" parent="Mord" index="8"]
+wait_time = 3.0
+
+[node name="StunnedTimer" parent="Mord" index="10"]
+wait_time = 1.0
+
+[node name="Arcology" type="Sprite" parent="."]
+position = Vector2( 0, -300 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="NamePlate" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.0
+margin_top = 458.185
+margin_right = 691.0
+margin_bottom = 644.185
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NamePlate"]
+"anims/Fade In Fade out" = SubResource( 29 )
+[connection signal="timeout" from="TurretSpawnTimer" to="." method="_on_TurretSpawnTimer_timeout"]
+[connection signal="kill" from="Hamrayah" to="." method="_on_Hamrayah_kill"]
+[connection signal="kill" from="Mord" to="." method="_on_Mord_kill"]
+
+[editable path="Hamrayah"]
+
+[editable path="Mord"]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://MainScenes/CreditsPanel.gd" type="Script" id=1]
+
+[node name="CreditsPanel" type="Panel"]
+self_modulate = Color( 1, 1, 1, 0.784314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -280.0
+margin_top = -376.0
+margin_right = 280.0
+margin_bottom = 376.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "
+Produced and Programed by: Captain Carrot
+
+ART:
+Enemy Sprites by: Captain Carrot
+
+Background Map Tiles by: voec
+
+Explosion Sprites by: Master484
+
+SOUND EFFECTS:
+Explosion Sound Effect by: Unnamed (Vikto.Hahn@web.de)
+
+Misc Sound Effects by: Lokif
+and Kenney (www.kenney.nl)
+
+MUSIC:
+Pressure written and produced by: Yd
+
+Special Thanks to:
+ Flavious59, Ha1fDead, GrandArchitect8, Koala-T Kontrol,
+ Badoomm, Uncle Larold, Doc Abelda, and Ziggy"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 33.0
+margin_top = -68.0
+margin_right = -18.0
+margin_bottom = -28.0
+text = "Return to Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

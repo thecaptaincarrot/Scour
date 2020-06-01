@@ -1,0 +1,179 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Sprite/Meow_meow_Run.png" type="Texture" id=1]
+[ext_resource path="res://Sounds/laser5.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Scripts/BasicGolemsArea2D.gd" type="Script" id=3]
+[ext_resource path="res://Sprite/BasicGolemEnemy.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/GolemEnemy.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/explosion06.wav" type="AudioStream" id=6]
+[ext_resource path="res://Enemies/RunnerGolem1.gd" type="Script" id=7]
+[ext_resource path="res://MainScenes/Hoop.tscn" type="PackedScene" id=8]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 64, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 128, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 192, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 256, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 320, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 384, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 128, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 192, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 256, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 320, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": false,
+"name": "Dead",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 24 ) ],
+"loop": true,
+"name": "Dying",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"loop": true,
+"name": "Attacking",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 31 ) ],
+"loop": true,
+"name": "Spawning",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 5 )
+region = Rect2( 128, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 5 )
+region = Rect2( 192, 128, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"loop": true,
+"name": "Spin",
+"speed": 25.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 33.6351, 14.8816 )
+
+[node name="Enemy" type="Node2D"]
+position = Vector2( 50, 50 )
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 7 )
+Hoop = ExtResource( 8 )
+
+[node name="GolemSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 32 )
+animation = "Attacking"
+frame = 1
+playing = true
+
+[node name="Tween" type="Tween" parent="GolemSprite"]
+
+[node name="RingSprite" type="AnimatedSprite" parent="."]
+visible = false
+rotation = 1.5708
+scale = Vector2( 0.719, 1 )
+frames = SubResource( 22 )
+animation = "Spin"
+frame = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 3.61828, 4.90508 )
+scale = Vector2( 0.654718, 1.20451 )
+shape = SubResource( 23 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 2.88905, -4.11769 )
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+[connection signal="animation_finished" from="GolemSprite" to="." method="Kill_My_Self"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
+[connection signal="finished" from="DeathSound" to="." method="_on_DeathSound_finished"]
