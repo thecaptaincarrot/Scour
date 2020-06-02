@@ -446,6 +446,6 @@ func life_down():
 		persistant_player.position.x = screen_size.x / 2
 		persistant_player.position.y = screen_size.y * 3 / 4
 		persistant_player.rings = 3
-		persistant_player.state = persistant_player.FINE
+		persistant_player.state = persistant_player.HURT
 	else:
 		game_over()
