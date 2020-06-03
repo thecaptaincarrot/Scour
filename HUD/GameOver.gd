@@ -7,7 +7,7 @@ signal return_to_menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,3 +21,13 @@ func _on_Button_pressed():
 
 func update_score():
 	$Panel/FinalScore.text = "Score: " + str(mainnode.score)
+
+
+func disable_buttons():
+	$Panel/ReturnToMenu.disabled = true
+	$Panel/Continue.disabled = true
+
+
+func enable_buttons():
+	$Panel/ReturnToMenu.disabled = false
+	$Panel/Continue.disabled = false

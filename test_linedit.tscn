@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Label.gd" type="Script" id=1]
+
+[node name="LineEdit" type="LineEdit"]
+margin_left = 222.0
+margin_top = 210.0
+margin_right = 542.0
+margin_bottom = 234.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 4.05005
+margin_top = 32.7002
+margin_right = 352.05
+margin_bottom = 89.7002
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

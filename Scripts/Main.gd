@@ -29,6 +29,7 @@ var score = 0
 var favor = 0
 
 var level = 0
+var lives = 3
 #In an effort to improve editting, we are going to a top-down variable approach
 #Several important constants that are redeclared in multiple places will
 #instead be here in Main and inherited by future classes.
@@ -57,14 +58,13 @@ var player_speed
 var player_killspeed
 var player_recoveryspeed
 
-var lives = 3
-
-
 var pre_cutscene_position = Vector2(0,0)
 
 var music_volume = 0
 var sound_volume = 0
-
+#Saved Variables
+var highscores = {1 : ["Abram" , 20000], 2 : ["Ishaq" , 10000], 3 : ["Yaqub" , 5000], 4 : ["Yosef" , 2500] , 5 : ["Moesha" , 1000]}
+var achievements = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -319,6 +319,11 @@ func clear_levels():
 func game_over():
 	$GameOver.show()
 	$GameOver.update_score()
+	if score > highscores[5][1]:
+		pass
+		#disable game over buttons
+		$GameOver.disable_buttons()
+		#open name entry box
 
 
 func _on_GameOver_return_to_menu():
@@ -449,3 +454,13 @@ func life_down():
 		persistant_player.state = persistant_player.HURT
 	else:
 		game_over()
+
+
+func check_highscore(score):
+	#if score is samller than the last spot, return
+	#else, find out what spot it is and prompt for a name
+	if score <= highscores[5][1]:
+		return
+	
+	
+	pass
