@@ -34,7 +34,7 @@ var lives = 3
 #Several important constants that are redeclared in multiple places will
 #instead be here in Main and inherited by future classes.
 #Map Object Variables
-const SCROLL_SPEED = 100.0
+const SCROLL_SPEED = 75.0
 
 #Upgrade information
 const KILLSPEED_VALUES = {1: 33.33, 2 : 50, 3 :  62.5, 4 : 83.3333}
@@ -63,13 +63,15 @@ var pre_cutscene_position = Vector2(0,0)
 var music_volume = 0
 var sound_volume = 0
 #Saved Variables
-var highscores = {1 : ["Abram" , 20000], 2 : ["Ishaq" , 10000], 3 : ["Yaqub" , 5000], 4 : ["Yosef" , 2500] , 5 : ["Moesha" , 1000]}
+var highscores = {"1" : ["Abram" , 20000], "2" : ["Ishaq" , 10000], "3" : ["Yaqub" , 5000], "4" : ["Yosef" , 2500] , "5" : ["Moesha" , 1000]}
 var achievements = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 	build_walls()
+	
+	load_data()
 	
 	$MainHUD.hide()
 
@@ -161,6 +163,9 @@ func NewGame():
 	speedlevel = 1
 	recoveryspeedlevel = 1
 	
+	lives = 0
+	level = 0
+	
 	persistant_player = Player.instance()
 	persistant_player.position.x = screen_size.x / 2
 	persistant_player.position.y = screen_size.y * 3 / 4
@@ -171,7 +176,6 @@ func NewGame():
 	update_player_stats()
 	$Mobs/Player.add_child(persistant_player)
 	
-	level = 0
 	go_to_next_level()
 
 
@@ -319,11 +323,15 @@ func clear_levels():
 func game_over():
 	$GameOver.show()
 	$GameOver.update_score()
-	if score > highscores[5][1]:
-		pass
+	
+	$GameOver.update_highscore_text()
+	
+	save_data()
+	
+	if score > highscores["5"][1]:
 		#disable game over buttons
 		$GameOver.disable_buttons()
-		#open name entry box
+		$GameOver/NameEntryPanel.show()
 
 
 func _on_GameOver_return_to_menu():
@@ -456,11 +464,64 @@ func life_down():
 		game_over()
 
 
-func check_highscore(score):
-	#if score is samller than the last spot, return
-	#else, find out what spot it is and prompt for a name
-	if score <= highscores[5][1]:
-		return
+func update_high_scores(name, score):
+	#when passed a score and a name, check where the score needs to be inserted
+	#Only shift if it is better than 4th place
+	#first term is the place you dummy
+	if score > highscores["1"][1]: #better than 1st place, top bottom
+		shift_scores(1)
+		highscores["1"] = [name,score]
+	elif score > highscores["2"][1]:
+		shift_scores(2)
+		highscores["2"] = [name,score]
+	elif score > highscores["3"][1]:
+		shift_scores(3)
+		highscores["3"] = [name,score]
+	elif score > highscores["4"][1]:
+		shift_scores(4)
+		highscores["4"] = [name,score]
+	elif score > highscores["5"][1]:
+		highscores["5"] = [name,score]
+	else:
+		print("ERROR: I don't know why we checked but no score needs updating")
+
+
+func shift_scores(place):
+	if place <= 4:
+		highscores["5"] = highscores["4"]
+	if place <= 3:
+		highscores["4"] = highscores["3"]
+	if place <= 2:
+		highscores["3"] = highscores["2"]
+	if place <= 1:
+		highscores["2"] = highscores["1"]
+
+
+func save_data():
+	var save_dict = {"HighScores" : highscores #will this work?
+	#add achievement information
+	}
 	
+	var save_game = File.new()
+	save_game.open("user://savegame.save", File.WRITE)
 	
-	pass
+	save_game.store_line(to_json(save_dict))
+	
+	save_game.close()
+	print ("Saved")
+	
+
+func load_data():
+	var save_game = File.new()
+	if not save_game.file_exists("user://savegame.save"):
+		return #No existing save data
+		print("No Save Data Found")
+	
+	save_game.open("user://savegame.save", File.READ)
+	
+	highscores = parse_json(save_game.get_line())["HighScores"]
+	
+	print("High Scores Loaded:")
+	print(highscores)
+
+

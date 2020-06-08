@@ -1,11 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://HUD/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://fonts/BasicFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://fonts/LibreBaskerville-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://HUD/NameEntryPanel.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0431373, 0.0392157, 0.0352941, 0.6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 15
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 18
@@ -99,8 +104,127 @@ margin_bottom = 91.0
 custom_fonts/font = ExtResource( 2 )
 text = "High Scores"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName1" type="Label" parent="Panel"]
+margin_left = 13.548
+margin_top = 140.0
+margin_right = 93.548
+margin_bottom = 160.0
+custom_fonts/font = SubResource( 5 )
+text = "1. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue1" type="Label" parent="Panel/HighScoreName1"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName2" type="Label" parent="Panel"]
+margin_left = 14.548
+margin_top = 180.0
+margin_right = 94.548
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 5 )
+text = "2. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue2" type="Label" parent="Panel/HighScoreName2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName3" type="Label" parent="Panel"]
+margin_left = 13.548
+margin_top = 220.0
+margin_right = 93.548
+margin_bottom = 240.0
+custom_fonts/font = SubResource( 5 )
+text = "3. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue3" type="Label" parent="Panel/HighScoreName3"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName4" type="Label" parent="Panel"]
+margin_left = 13.548
+margin_top = 260.0
+margin_right = 93.548
+margin_bottom = 280.0
+custom_fonts/font = SubResource( 5 )
+text = "4. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue4" type="Label" parent="Panel/HighScoreName4"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName5" type="Label" parent="Panel"]
+margin_left = 13.548
+margin_top = 300.0
+margin_right = 93.548
+margin_bottom = 320.0
+custom_fonts/font = SubResource( 5 )
+text = "5. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue5" type="Label" parent="Panel/HighScoreName5"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NameEntryPanel" type="Panel" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -109,6 +233,7 @@ margin_left = -167.0
 margin_top = -179.5
 margin_right = 168.0
 margin_bottom = -62.5
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -165,3 +290,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="Panel/ReturnToMenu" to="." method="_on_Button_pressed"]
+[connection signal="text_entered" from="NameEntryPanel/LineEdit" to="." method="High_Score_Name_Submitted"]
+[connection signal="pressed" from="NameEntryPanel/Submit" to="." method="High_Score_Name_Submitted"]

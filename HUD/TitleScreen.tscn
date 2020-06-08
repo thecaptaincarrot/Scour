@@ -5,6 +5,8 @@
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -0.857361
+margin_bottom = -0.857361
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -14,9 +16,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -135.5
+margin_left = -134.643
 margin_top = -200.0
-margin_right = 135.5
+margin_right = 136.357
 margin_bottom = -154.0
 text = "New Game"
 __meta__ = {
@@ -29,10 +31,24 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -135.5
-margin_top = -119.25
+margin_top = -120.0
 margin_right = 135.5
-margin_bottom = -73.2501
+margin_bottom = -74.0001
 text = "Instructions"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.5
+margin_top = -40.0
+margin_right = 135.5
+margin_bottom = 5.99994
+text = "High Scores"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -43,9 +59,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -135.5
-margin_top = -33.7502
+margin_top = 40.0
 margin_right = 135.5
-margin_bottom = 12.2498
+margin_bottom = 86.0
 text = "Options"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -57,9 +73,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -135.5
-margin_top = 53.6497
+margin_top = 120.0
 margin_right = 135.5
-margin_bottom = 99.6497
+margin_bottom = 166.0
 text = "Credits"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -26,10 +26,9 @@ func _process(delta):
 func Spawn_Next_Wave():
 	match wave_number:
 		0:
-			Basic_Eight()
-#		1:
-#			flanking_turrets()
-#			fill_screen()
+			corner_turrets()
+		1:
+			fill_screen()
 #		2:
 #			Basic_Eight()
 #			center_turrets()
@@ -42,7 +41,5 @@ func Spawn_Next_Wave():
 #		5:
 #			flanks()
 #			center_turrets()
-		2:
-			level_end()
 	
 	wave_number += 1
