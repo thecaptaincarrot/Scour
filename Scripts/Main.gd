@@ -163,7 +163,7 @@ func NewGame():
 	speedlevel = 1
 	recoveryspeedlevel = 1
 	
-	lives = 0
+	lives = 3
 	level = 0
 	
 	persistant_player = Player.instance()

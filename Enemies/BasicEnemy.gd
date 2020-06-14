@@ -39,6 +39,7 @@ func _ready():
 
 func _process(delta):
 	$DeathSound.volume_db = -40 + (4 * mainnode.sound_volume)
+	$ShootSound.volume_db = -40 + (4 * mainnode.sound_volume)
 	
 	match state:
 		SPAWNING:

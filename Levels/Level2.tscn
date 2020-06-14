@@ -1,25 +1,22 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Levels/Level2.gd" type="Script" id=1]
-[ext_resource path="res://Enemies/ObsoletedEnemies/BasicGolem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/RunnerGolem1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/Bosses/Pillars.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Enemies/ObsoletedEnemies/TurretEnemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/TurretEnemy1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tiles/Arcology.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Enemies/ObsoletedEnemies/RunnerGolem.tscn" type="PackedScene" id=6]
-
-
-
+[ext_resource path="res://Enemies/GunnerGolem.tscn" type="PackedScene" id=6]
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource( 1 )
-BasicGolem = ExtResource( 2 )
+BasicGolem = ExtResource( 6 )
 Turret = ExtResource( 4 )
-Runner = ExtResource( 6 )
+Runner = ExtResource( 2 )
 PillarsOfResistance = ExtResource( 3 )
 Arcology = ExtResource( 5 )
 
 [node name="WaveSpawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 autostart = true
 
 [node name="EnemyStaggerTimer" type="Timer" parent="."]

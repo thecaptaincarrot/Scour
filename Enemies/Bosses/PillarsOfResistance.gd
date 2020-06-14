@@ -67,7 +67,7 @@ func _process(delta):
 	match state:
 		DORMANT:
 			if position.y < 0:
-				position.y += delta * 30.0
+				position.y += delta * MainNode.SCROLL_SPEED
 		START:
 			#Mord Starting Location
 			mord_hole = randi() % 4

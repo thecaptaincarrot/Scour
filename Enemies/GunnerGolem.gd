@@ -1,42 +1,29 @@
 extends "res://Enemies/BasicEnemy.gd"
 
-export var rapidfire = 3
-
-var bulletcounter = 0
-
-var vertical_speed = 0.0
+var vertical_speed = 30.0
 
 export (PackedScene) var Bullet
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	match state:
 		SPAWNING:
-			position.y += (scroll_speed + vertical_speed) * delta
-			$Area2D.type = "SpawningEnemy"
+			$GolemSprite.animation = "Attacking"
+			state = ATTACKING
 		ATTACKING:
-			$Area2D.type = "AttackingEnemy"
-			if $ShotTimer.is_stopped():
-				$ShotTimer.start()
 			position.y += (scroll_speed + vertical_speed) * delta
-		DYING:
-			$ShotTimer.stop()
 
 
 func _on_GolemSprite_animation_finished():
-	if $GolemSprite.animation == "Spawning":
-		state = ATTACKING
-		$GolemSprite.animation = "Attacking"
-	elif $GolemSprite.animation == "Shooting":
+	if $GolemSprite.animation == "Shooting":
 		shoot_bullet()
-		bulletcounter += 1
-		$RapidFireTimer.start()
-		
+		$GolemSprite.animation = "Attacking"
 
 
 func shoot_bullet():
@@ -49,14 +36,5 @@ func shoot_bullet():
 
 
 func _on_ShotTimer_timeout():
+	print("Beep")
 	$GolemSprite.animation = "Shooting"
-
-
-func _on_RapidFireTimer_timeout():
-	if bulletcounter < rapidfire:
-		shoot_bullet()
-		bulletcounter += 1
-		$RapidFireTimer.start()
-	else:
-		bulletcounter = 0
-		$GolemSprite.animation = "Attacking"

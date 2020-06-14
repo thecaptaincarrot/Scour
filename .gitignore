@@ -1,6 +1,3 @@
-#Gimp Files
-*.xcf
-
 # Godot-specific ignores
 .import/
 export.cfg

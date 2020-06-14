@@ -24,6 +24,7 @@ func _process(_delta):
 
 
 func Spawn_Next_Wave():
+	print ("Ding")
 	match wave_number:
 		0:
 			Basic_Eight()
