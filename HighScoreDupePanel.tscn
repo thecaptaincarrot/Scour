@@ -1,0 +1,203 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/LibreBaskerville-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/BasicFont.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0431373, 0.0392157, 0.0352941, 0.6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+font_data = ExtResource( 1 )
+
+[node name="Panel" type="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -133.545
+margin_top = -253.5
+margin_right = 146.455
+margin_bottom = 220.5
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnToMenu" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -73.0
+margin_top = -29.0
+margin_right = 73.0
+margin_bottom = -8.99997
+text = "Return to Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.5
+margin_top = 183.0
+margin_right = 34.5
+margin_bottom = 203.0
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FinalScore" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.8574
+margin_top = 38.8542
+margin_right = 19.1426
+margin_bottom = 52.8542
+text = "Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -85.5
+margin_right = 85.5
+margin_bottom = 31.0
+custom_fonts/font = ExtResource( 2 )
+text = "GAME OVER"
+
+[node name="High Scores" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -76.5
+margin_top = 60.0
+margin_right = 76.5
+margin_bottom = 91.0
+custom_fonts/font = ExtResource( 2 )
+text = "High Scores"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName1" type="Label" parent="."]
+margin_left = 13.548
+margin_top = 140.0
+margin_right = 93.548
+margin_bottom = 160.0
+custom_fonts/font = SubResource( 2 )
+text = "1. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue1" type="Label" parent="HighScoreName1"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName2" type="Label" parent="."]
+margin_left = 14.548
+margin_top = 180.0
+margin_right = 94.548
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 2 )
+text = "2. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue2" type="Label" parent="HighScoreName2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName3" type="Label" parent="."]
+margin_left = 13.548
+margin_top = 220.0
+margin_right = 93.548
+margin_bottom = 240.0
+custom_fonts/font = SubResource( 2 )
+text = "3. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue3" type="Label" parent="HighScoreName3"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName4" type="Label" parent="."]
+margin_left = 13.548
+margin_top = 260.0
+margin_right = 93.548
+margin_bottom = 280.0
+custom_fonts/font = SubResource( 2 )
+text = "4. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue4" type="Label" parent="HighScoreName4"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName5" type="Label" parent="."]
+margin_left = 13.548
+margin_top = 300.0
+margin_right = 93.548
+margin_bottom = 320.0
+custom_fonts/font = SubResource( 2 )
+text = "5. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue5" type="Label" parent="HighScoreName5"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}

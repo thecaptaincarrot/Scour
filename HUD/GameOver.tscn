@@ -1,27 +1,20 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://HUD/GameOver.gd" type="Script" id=1]
-[ext_resource path="res://fonts/BasicFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://HighScoreDupePanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fonts/LibreBaskerville-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://HUD/NameEntryPanel.gd" type="Script" id=4]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.0431373, 0.0392157, 0.0352941, 0.6 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 15
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 18
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFontData" id=3]
+[sub_resource type="DynamicFontData" id=2]
 font_path = "res://fonts/LibreBaskerville-Bold.ttf"
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 14
-font_data = SubResource( 3 )
+font_data = SubResource( 2 )
 
 [node name="GameOver" type="Control"]
 margin_right = 720.0
@@ -31,197 +24,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -133.545
-margin_top = -253.5
-margin_right = 146.455
-margin_bottom = 220.5
-custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ReturnToMenu" type="Button" parent="Panel"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -73.0
-margin_top = -29.0
-margin_right = 73.0
-margin_bottom = -8.99997
-text = "Return to Main Menu"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Continue" type="Button" parent="Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -34.5
-margin_top = 183.0
-margin_right = 34.5
-margin_bottom = 203.0
-text = "Continue"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FinalScore" type="Label" parent="Panel"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -20.8574
-margin_top = 38.8542
-margin_right = 19.1426
-margin_bottom = 52.8542
-text = "Score"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GameOver" type="Label" parent="Panel"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -85.5
-margin_right = 85.5
-margin_bottom = 31.0
-custom_fonts/font = ExtResource( 2 )
-text = "GAME OVER"
-
-[node name="High Scores" type="Label" parent="Panel"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -76.5
-margin_top = 60.0
-margin_right = 76.5
-margin_bottom = 91.0
-custom_fonts/font = ExtResource( 2 )
-text = "High Scores"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HighScoreName1" type="Label" parent="Panel"]
-margin_left = 13.548
-margin_top = 140.0
-margin_right = 93.548
-margin_bottom = 160.0
-custom_fonts/font = SubResource( 5 )
-text = "1. ABRAM"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HighScoreValue1" type="Label" parent="Panel/HighScoreName1"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 200.0
-margin_top = -7.0
-margin_right = 248.0
-margin_bottom = 7.0
-text = "200000"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HighScoreName2" type="Label" parent="Panel"]
-margin_left = 14.548
-margin_top = 180.0
-margin_right = 94.548
-margin_bottom = 200.0
-custom_fonts/font = SubResource( 5 )
-text = "2. ABRAM"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HighScoreValue2" type="Label" parent="Panel/HighScoreName2"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 200.0
-margin_top = -7.0
-margin_right = 248.0
-margin_bottom = 7.0
-text = "200000"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HighScoreName3" type="Label" parent="Panel"]
-margin_left = 13.548
-margin_top = 220.0
-margin_right = 93.548
-margin_bottom = 240.0
-custom_fonts/font = SubResource( 5 )
-text = "3. ABRAM"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HighScoreValue3" type="Label" parent="Panel/HighScoreName3"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 200.0
-margin_top = -7.0
-margin_right = 248.0
-margin_bottom = 7.0
-text = "200000"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HighScoreName4" type="Label" parent="Panel"]
-margin_left = 13.548
-margin_top = 260.0
-margin_right = 93.548
-margin_bottom = 280.0
-custom_fonts/font = SubResource( 5 )
-text = "4. ABRAM"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HighScoreValue4" type="Label" parent="Panel/HighScoreName4"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 200.0
-margin_top = -7.0
-margin_right = 248.0
-margin_bottom = 7.0
-text = "200000"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HighScoreName5" type="Label" parent="Panel"]
-margin_left = 13.548
-margin_top = 300.0
-margin_right = 93.548
-margin_bottom = 320.0
-custom_fonts/font = SubResource( 5 )
-text = "5. ABRAM"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HighScoreValue5" type="Label" parent="Panel/HighScoreName5"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 200.0
-margin_top = -7.0
-margin_right = 248.0
-margin_bottom = 7.0
-text = "200000"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Panel" parent="." instance=ExtResource( 2 )]
 
 [node name="NameEntryPanel" type="Panel" parent="."]
 visible = false
@@ -244,7 +47,7 @@ anchor_right = 0.5
 margin_left = -81.0
 margin_right = 81.0
 margin_bottom = 23.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "New High Score!"
 
 [node name="EnterYourName" type="Label" parent="NameEntryPanel"]
@@ -256,7 +59,7 @@ margin_left = -67.0001
 margin_top = -23.5
 margin_right = 66.9998
 margin_bottom = -5.49998
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Enter Your Name:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -289,6 +92,5 @@ text = "Submit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Panel/ReturnToMenu" to="." method="_on_Button_pressed"]
 [connection signal="text_entered" from="NameEntryPanel/LineEdit" to="." method="High_Score_Name_Submitted"]
 [connection signal="pressed" from="NameEntryPanel/Submit" to="." method="High_Score_Name_Submitted"]

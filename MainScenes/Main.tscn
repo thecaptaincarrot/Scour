@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://MainScenes/Background.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://MainScenes/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Cutscene/EndOfLevelCutscene.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Levels/Level6.tscn" type="PackedScene" id=8]
+[ext_resource path="res://HUD/MainMenuHighScores.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Levels/Level3.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Levels/Level2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Tiles/Arcology.tscn" type="PackedScene" id=12]
@@ -84,6 +85,17 @@ visible = false
 [node name="GameOver" parent="." instance=ExtResource( 22 )]
 visible = false
 
+[node name="HighScoreWindow" parent="." instance=ExtResource( 9 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 372.313
+margin_top = 462.753
+margin_right = 372.313
+margin_bottom = 462.753
+
 [node name="PauseMenu" parent="." instance=ExtResource( 24 )]
 visible = false
 anchor_left = 0.5
@@ -144,11 +156,11 @@ one_shot = true
 [connection signal="timeout" from="KludgeTimer" to="." method="_on_KludgeTimer_timeout"]
 [connection signal="pressed" from="TitleScreen/NewGame" to="." method="NewGame"]
 [connection signal="pressed" from="TitleScreen/Instructions" to="." method="_on_Instructions_pressed"]
+[connection signal="pressed" from="TitleScreen/HighScores" to="." method="_on_HighScores_pressed"]
 [connection signal="pressed" from="TitleScreen/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="TitleScreen/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="next_level" from="UpgradeScreen" to="." method="go_to_next_level"]
 [connection signal="return_to_menu" from="GameOver" to="." method="_on_GameOver_return_to_menu"]
-[connection signal="pressed" from="GameOver/Panel/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="PauseMenu/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="PauseMenu/Return" to="." method="_on_GameOver_return_to_menu"]
 [connection signal="pressed" from="PauseMenu/Options" to="." method="_on_Options_pressed"]

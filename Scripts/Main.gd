@@ -525,3 +525,5 @@ func load_data():
 	print(highscores)
 
 
+func _on_HighScores_pressed():
+	$HighScoreWindow.show()

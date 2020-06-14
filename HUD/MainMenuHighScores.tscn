@@ -1,0 +1,240 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://HUD/MainMenuHighScores.gd" type="Script" id=1]
+[ext_resource path="res://fonts/LibreBaskerville-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/BasicFont.tres" type="DynamicFont" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0431373, 0.0392157, 0.0352941, 0.839216 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+font_data = ExtResource( 2 )
+
+[node name="HighScoreWindow" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -133.545
+margin_top = -253.5
+margin_right = 146.455
+margin_bottom = 220.5
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnToMenu" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -73.0
+margin_top = -52.0
+margin_right = 73.0
+margin_bottom = -9.0
+text = "Return to Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="Button" parent="Panel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -69.0
+margin_bottom = 20.0
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="High Scores" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -76.5
+margin_top = 15.0
+margin_right = 76.5
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 3 )
+text = "High Scores"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName1" type="Label" parent="Panel"]
+margin_left = 13.548
+margin_top = 140.0
+margin_right = 93.548
+margin_bottom = 160.0
+custom_fonts/font = SubResource( 2 )
+text = "1. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue1" type="Label" parent="Panel/HighScoreName1"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName2" type="Label" parent="Panel"]
+margin_left = 14.548
+margin_top = 180.0
+margin_right = 94.548
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 2 )
+text = "2. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue2" type="Label" parent="Panel/HighScoreName2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName3" type="Label" parent="Panel"]
+margin_left = 13.548
+margin_top = 220.0
+margin_right = 93.548
+margin_bottom = 240.0
+custom_fonts/font = SubResource( 2 )
+text = "3. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue3" type="Label" parent="Panel/HighScoreName3"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName4" type="Label" parent="Panel"]
+margin_left = 13.548
+margin_top = 260.0
+margin_right = 93.548
+margin_bottom = 280.0
+custom_fonts/font = SubResource( 2 )
+text = "4. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue4" type="Label" parent="Panel/HighScoreName4"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreName5" type="Label" parent="Panel"]
+margin_left = 13.548
+margin_top = 300.0
+margin_right = 93.548
+margin_bottom = 320.0
+custom_fonts/font = SubResource( 2 )
+text = "5. ABRAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreValue5" type="Label" parent="Panel/HighScoreName5"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -7.0
+margin_right = 248.0
+margin_bottom = 7.0
+text = "200000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.0
+margin_top = -62.5
+margin_right = 123.0
+margin_bottom = 62.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesButton" type="Button" parent="Panel2"]
+anchor_left = 0.00314542
+anchor_right = 0.00314542
+margin_left = 38.1898
+margin_top = 83.8879
+margin_right = 103.19
+margin_bottom = 103.888
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoButton" type="Button" parent="Panel2"]
+margin_left = 126.932
+margin_top = 83.8232
+margin_right = 191.932
+margin_bottom = 103.823
+text = "No"
+
+[node name="Label" type="Label" parent="Panel2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -106.0
+margin_top = -40.5
+margin_right = 104.0
+margin_bottom = 7.5
+text = "Are you sure you would like to reset your high scores? This cannot be undone."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Panel/ReturnToMenu" to="." method="_on_ReturnToMenu_pressed"]
+[connection signal="pressed" from="Panel/Reset" to="." method="_on_Reset_pressed"]
+[connection signal="pressed" from="Panel2/YesButton" to="." method="_on_YesButton_pressed"]
+[connection signal="pressed" from="Panel2/NoButton" to="." method="_on_NoButton_pressed"]
