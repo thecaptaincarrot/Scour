@@ -23,6 +23,7 @@ export (PackedScene) var Runner
 
 #Bosses
 export(PackedScene) var PillarsOfResistance
+export(PackedScene) var MimicAngel
 
 export (PackedScene) var Arcology
 var persistant_arcology
@@ -36,7 +37,7 @@ enum {PLAYING, OVER, BOSSINTRO, BOSS, BOSSOVER}
 #BOSS stops the background from scrolling
 #Should be able to go to BOSSOVER
 
-var persistant_pillar
+var persistant_boss
 
 var state = PLAYING
 
@@ -238,9 +239,15 @@ func level_end():
 
 func Pillars_Boss_Fight():
 	#put in position, start moving down
-	persistant_pillar = PillarsOfResistance.instance()
-	persistant_pillar.position.y = -960
-	EnemiesNode.add_child(persistant_pillar)
+	persistant_boss = PillarsOfResistance.instance()
+	persistant_boss.position.y = -960
+	EnemiesNode.add_child(persistant_boss)
 	state = BOSSINTRO
 	#Stop screen from scrolling
 	
+
+func Mimic_Boss_Fight():
+	persistant_boss = MimicAngel.instance()
+	persistant_boss.position.y = -900
+	EnemiesNode.add_child(persistant_boss)
+	state = BOSSINTRO

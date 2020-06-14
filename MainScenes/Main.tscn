@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://MainScenes/Background.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://HUD/OptionsMenu.tscn" type="PackedScene" id=25]
 [ext_resource path="res://HUD/Thanks.tscn" type="PackedScene" id=26]
 [ext_resource path="res://HUD/InstructionsScreen.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Levels/TestLevel.tscn" type="PackedScene" id=28]
 
 [node name="Main" type="Node2D"]
 pause_mode = 2
@@ -34,7 +35,7 @@ script = ExtResource( 2 )
 H_WALL = ExtResource( 5 )
 V_WALL = ExtResource( 14 )
 Player = ExtResource( 6 )
-level1 = ExtResource( 11 )
+level1 = ExtResource( 28 )
 level2 = ExtResource( 11 )
 level3 = ExtResource( 10 )
 level4 = ExtResource( 13 )

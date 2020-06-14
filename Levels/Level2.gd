@@ -12,10 +12,10 @@ func _ready():
 func _process(_delta):
 	match state:
 		BOSSINTRO:
-			if persistant_pillar.position.y >= 0:
+			if persistant_boss.position.y >= 0:
 				print("BossTime")
 				emit_signal("boss_fight")
-				persistant_pillar.state = persistant_pillar.START
+				persistant_boss.state = persistant_boss.START
 				state = BOSS
 		BOSS:
 			pass

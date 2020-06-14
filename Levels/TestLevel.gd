@@ -12,10 +12,10 @@ func _ready():
 func _process(_delta):
 	match state:
 		BOSSINTRO:
-			if persistant_pillar.position.y >= 0:
+			if persistant_boss.position.y >= 0:
 				print("BossTime")
 				emit_signal("boss_fight")
-				persistant_pillar.state = persistant_pillar.START
+				persistant_boss.state = persistant_boss.START
 				state = BOSS
 		BOSS:
 			pass
@@ -25,6 +25,9 @@ func _process(_delta):
 
 func Spawn_Next_Wave():
 	#just spawn the same thing over and over
-	center_flanks()
+	match wave_number:
+		0:
+			Pillars_Boss_Fight()
+			print("BossTime")
 	
 	wave_number += 1

@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Enemies/WalkingGolem1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/TestLevel.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/TurretEnemy1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemies/RunnerGolem1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/Bosses/Chakyanel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tiles/Arcology.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/Bosses/Pillars.tscn" type="PackedScene" id=7]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 2 )
 BasicGolem = ExtResource( 1 )
 Turret = ExtResource( 3 )
 Runner = ExtResource( 4 )
+PillarsOfResistance = ExtResource( 7 )
+MimicAngel = ExtResource( 5 )
+Arcology = ExtResource( 6 )
 
 [node name="WaveSpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
