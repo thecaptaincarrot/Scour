@@ -248,6 +248,6 @@ func Pillars_Boss_Fight():
 
 func Mimic_Boss_Fight():
 	persistant_boss = MimicAngel.instance()
-	persistant_boss.position.y = -900
+	persistant_boss.position.y = -960
 	EnemiesNode.add_child(persistant_boss)
 	state = BOSSINTRO

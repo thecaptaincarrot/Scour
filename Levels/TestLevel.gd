@@ -27,7 +27,7 @@ func Spawn_Next_Wave():
 	#just spawn the same thing over and over
 	match wave_number:
 		0:
-			Pillars_Boss_Fight()
+			Mimic_Boss_Fight()
 			print("BossTime")
 	
 	wave_number += 1

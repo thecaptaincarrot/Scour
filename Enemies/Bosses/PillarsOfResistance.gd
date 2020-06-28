@@ -15,7 +15,7 @@ onready var holes = {0 : $PortHole1, 1: $PortHole1, 2: $PortHole1, 3: $PortHole1
 onready var Mord = $Mord
 onready var Hamrayah = $Hamrayah
 
-enum {ATTACKING, EMERGING, UNDER, STUNNED, HURT}
+#enum {ATTACKING, EMERGING, UNDER, STUNNED, HURT}
 
 var mord_state
 var ham_state
