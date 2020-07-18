@@ -20,6 +20,8 @@ var center_grid = {}
 export (PackedScene) var BasicGolem
 export (PackedScene) var Turret
 export (PackedScene) var Runner
+export (PackedScene) var ShootyGolem
+
 
 #Bosses
 export(PackedScene) var PillarsOfResistance
@@ -29,6 +31,7 @@ export (PackedScene) var Arcology
 var persistant_arcology
 
 onready var MobNode = get_node("/root/Main/Mobs")
+onready var MainNode = get_node("/root/Main")
 
 onready var EnemiesNode = MobNode.get_node("Enemies")
 
@@ -64,7 +67,7 @@ func _process(delta):
 			pass
 		OVER:
 			if persistant_arcology.position.y < -250:
-				persistant_arcology.position.y += 30.0 * delta
+				persistant_arcology.position.y += MainNode.SCROLL_SPEED * delta
 			if persistant_arcology.position.y >= -250:
 				persistant_arcology.position.y = -250
 				emit_signal("level_over")
@@ -77,6 +80,26 @@ func _process(delta):
 			pass
 
 #Golems
+func Tutorial():
+	create_basic_golem(top_grid[03])
+	create_basic_golem(top_grid[05])
+
+func Small_Line():
+	create_basic_golem(top_grid[03])
+	create_basic_golem(top_grid[04])
+	create_basic_golem(top_grid[05])
+	create_basic_golem(top_grid[02])
+	create_basic_golem(top_grid[06])
+
+
+func Small_Shooter_Line():
+	create_shooter_golem(top_grid[03])
+	create_basic_golem(top_grid[04])
+	create_basic_golem(top_grid[05])
+	create_basic_golem(top_grid[02])
+	create_shooter_golem(top_grid[06])
+
+
 func Basic_Eight():
 	create_basic_golem(top_grid[02])
 	create_basic_golem(top_grid[03])
@@ -86,6 +109,17 @@ func Basic_Eight():
 	create_basic_golem(top_grid[13])
 	create_basic_golem(top_grid[14])
 	create_basic_golem(top_grid[15])
+
+
+func Linebackers():
+	create_basic_golem(top_grid[02])
+	create_basic_golem(top_grid[03])
+	create_basic_golem(top_grid[04])
+	create_basic_golem(top_grid[05])
+	create_shooter_golem(top_grid[12])
+	create_shooter_golem(top_grid[13])
+	create_shooter_golem(top_grid[14])
+	create_shooter_golem(top_grid[15])
 
 
 func fill_screen():
@@ -110,6 +144,16 @@ func flying_vee():
 	create_basic_golem(top_grid[34])
 
 
+func flying_shooter_vee():
+	create_shooter_golem(top_grid[01])
+	create_shooter_golem(top_grid[07])
+	create_basic_golem(top_grid[12])
+	create_basic_golem(top_grid[16])
+	create_basic_golem(top_grid[23])
+	create_shooter_golem(top_grid[25])
+	create_shooter_golem(top_grid[34])
+
+
 func flanks():
 	create_basic_golem(top_grid[00])
 	create_basic_golem(top_grid[08])
@@ -117,6 +161,16 @@ func flanks():
 	create_basic_golem(top_grid[18])
 	create_basic_golem(top_grid[20])
 	create_basic_golem(top_grid[28])
+
+
+func gun_flanks():
+	create_shooter_golem(top_grid[00])
+	create_shooter_golem(top_grid[08])
+	create_shooter_golem(top_grid[10])
+	create_shooter_golem(top_grid[18])
+	create_shooter_golem(top_grid[20])
+	create_shooter_golem(top_grid[28])
+
 
 #Turrets
 func flanking_turrets():
@@ -138,6 +192,29 @@ func center_turrets():
 	create_turret(center_grid[63])
 
 
+func center_compliment1():
+	create_basic_golem(top_grid[04])
+	create_basic_golem(top_grid[02])
+	create_basic_golem(top_grid[06])
+	create_basic_golem(top_grid[14])
+	create_basic_golem(top_grid[12])
+	create_basic_golem(top_grid[16])
+
+
+func center_compliment():
+	create_basic_golem(top_grid[04])
+	create_basic_golem(top_grid[02])
+	create_basic_golem(top_grid[06])
+	
+
+func center_turrets_less():
+	create_turret(center_grid[65])
+	create_turret(center_grid[63])
+
+
+func single_turret():
+	create_turret(center_grid[54])
+
 #Runners
 #Never create two runners on the same x level at the same time!!
 func center_flanks():
@@ -157,8 +234,29 @@ func top_corner_rush():
 	create_runner(left_grid[01])
 
 
+func right_middle():
+	create_runner(right_grid[05])
+
+
+func left_middle():
+	create_runner(left_grid[05])
+
+
+func hard_right():
+	create_runner(right_grid[15])
+	create_runner(right_grid[05])
+
+
 func create_basic_golem(grid_position):
 	var new_golem = BasicGolem.instance()
+	new_golem.state = new_golem.ATTACKING
+	new_golem.position = grid_position
+	new_golem.connect("kill", get_node("/root/Main"),"score_up")
+	EnemiesNode.add_child(new_golem)
+
+
+func create_shooter_golem(grid_position):
+	var new_golem = ShootyGolem.instance()
 	new_golem.state = new_golem.ATTACKING
 	new_golem.position = grid_position
 	new_golem.connect("kill", get_node("/root/Main"),"score_up")
@@ -242,6 +340,7 @@ func Pillars_Boss_Fight():
 	persistant_boss = PillarsOfResistance.instance()
 	persistant_boss.position.y = -960
 	EnemiesNode.add_child(persistant_boss)
+	persistant_boss.connect("Boss_Defeated",MainNode,"boss_end_cutscene_start")
 	state = BOSSINTRO
 	#Stop screen from scrolling
 	
@@ -249,5 +348,8 @@ func Pillars_Boss_Fight():
 func Mimic_Boss_Fight():
 	persistant_boss = MimicAngel.instance()
 	persistant_boss.position.y = -960
+	MainNode.persistant_player.connect("PlayerKilled", persistant_boss, "player_killed")
+	persistant_boss.connect("Boss_Defeated",MainNode,"boss_end_cutscene_start")
 	EnemiesNode.add_child(persistant_boss)
 	state = BOSSINTRO
+	

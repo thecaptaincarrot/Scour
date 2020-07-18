@@ -1,7 +1,7 @@
 extends "res://Enemies/BasicEnemy.gd"
 
 
-var vertical_speed = 75
+var vertical_speed = 150
 var horizontal_speed = 200
 
 var player_vector = Vector2(0,0)

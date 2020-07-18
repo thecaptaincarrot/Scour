@@ -131,18 +131,35 @@ func _go_to_laying(_bad, _argument):
 func _on_Area2D_area_entered(area):
 	if (state == LAYING or state == BOUNCING or (state == FLYING and bounced)) and area.type == "Player":
 		queue_free()
-	if (state == FLYING) and (area.type == "AttackingEnemy"  or area.type == "Emerging") and hit_something == false:
-		hit_something = true
-		area.get_parent().state = area.get_parent().DYING
-		area.get_parent().kill_speed = kill_speed
-		queue_free()
-	#Bosses must have a function called "hit" that calls at this point
-	if (state == FLYING) and (area.type == "Boss" or area.type == "StunnedBoss") and hit_something == false:
-		hit_something = true
-		area.get_parent().state = area.get_parent().STUNNED
-		area.get_parent().kill_speed = kill_speed
-		area.get_parent().hurt()
-		queue_free()
+	if state == FLYING:
+		if (area.type == "AttackingEnemy"  or area.type == "Emerging") and hit_something == false:
+			hit_something = true
+			area.get_parent().state = area.get_parent().DYING
+			area.get_parent().kill_speed = kill_speed
+			queue_free()
+		#Bosses must have a function called "hit" that calls at this point
+		if (area.type == "Boss" or area.type == "StunnedBoss") and hit_something == false:
+			hit_something = true
+			area.get_parent().state = area.get_parent().STUNNED
+			area.get_parent().kill_speed = kill_speed
+			area.get_parent().hurt()
+			queue_free()
+		if area.type == "ShieldedBoss" and hit_something == false:
+			hit_something = true
+			state = STUNNED
+			velocity = -velocity
+			$StunTimer.start()
+		if area.type == "UnprotectedBoss":
+			area.get_parent().get_parent().rings += 1
+			area.get_parent().get_parent().get_node("StunTimer").start()
+			queue_free()
+		if area.type == "RaisedPylon":
+			area.get_parent().damage()
+			hit_something = true
+			state = STUNNED
+			velocity = -velocity * .5
+			$StunTimer.wait_time = 3
+			$StunTimer.start()
 
 
 func _on_StunTimer_timeout():

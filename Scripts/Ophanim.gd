@@ -143,7 +143,7 @@ func _on_Area2D_area_entered(area):
 		return
 	if area.type == "PickupHoop" or area.type == "BouncingHoop" or area.type == "FlyingHoop2":
 		rings += 1
-	if (area.type == "AttackingEnemy" or area.type == "Bullet" or area.type == "Boss") and state == FINE:
+	if (area.type == "AttackingEnemy" or area.type == "Bullet" or area.type == "Boss" or area.type == "ShieldedBoss") and state == FINE:
 		emit_signal("PlayerHit")
 		if rings > 0:
 			var new_hoop = Hoop.instance()
@@ -157,8 +157,27 @@ func _on_Area2D_area_entered(area):
 		else:
 			emit_signal("PlayerKilled")
 			$OphanimSprite.animation = "Dying"
+			
 		
 		rings -= 1
+	if area.type == "LaserWheel" and state == FINE:
+		emit_signal("PlayerHit")
+		if rings > 0 :
+			for i  in range(0,rings):
+				var new_hoop = Hoop.instance()
+				new_hoop.state = new_hoop.STUNNED
+				new_hoop.position = position
+				new_hoop.direction = Vector2(randi(),randi()).normalized()
+				new_hoop.speed = 300
+				Hoops.call_deferred("add_child",new_hoop)
+				
+			state = HURT
+			$InvulnTimer.start()
+			rings = 0
+		else:
+			rings = -1
+			emit_signal("PlayerKilled")
+			$OphanimSprite.animation = "Dying"
 
 
 

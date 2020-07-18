@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/66ec16ecf1e4cf9dea369c8a815c79ef.jpg-b640bdccd33f5cec9d07db08d75fbf42.stex"
+path="res://.import/Chakyanel.png-1ef240e9bb2ba56e1c232c91edbf5df5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/66ec16ecf1e4cf9dea369c8a815c79ef.jpg"
-dest_files=[ "res://.import/66ec16ecf1e4cf9dea369c8a815c79ef.jpg-b640bdccd33f5cec9d07db08d75fbf42.stex" ]
+source_file="res://Texts/Chakyanel.png"
+dest_files=[ "res://.import/Chakyanel.png-1ef240e9bb2ba56e1c232c91edbf5df5.stex" ]
 
 [params]
 

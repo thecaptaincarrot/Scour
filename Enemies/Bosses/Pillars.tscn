@@ -11,178 +11,177 @@
 [ext_resource path="res://Texts/HamrayahAndMord1.png" type="Texture" id=9]
 [ext_resource path="res://Sprite/Boss1_1a.png" type="Texture" id=10]
 
-
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 128, 0, 128, 128 )
+atlas = ExtResource( 10 )
+region = Rect2( 896, 128, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 896, 128, 128, 128 )
+region = Rect2( 768, 128, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 768, 128, 128, 128 )
+region = Rect2( 640, 128, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 640, 128, 128, 128 )
+region = Rect2( 512, 128, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 512, 128, 128, 128 )
+region = Rect2( 384, 128, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 384, 128, 128, 128 )
+region = Rect2( 256, 128, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 256, 128, 128, 128 )
+region = Rect2( 128, 128, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 128, 128, 128, 128 )
+region = Rect2( 0, 128, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 0, 128, 128, 128 )
+region = Rect2( 0, 256, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 896, 0, 128, 128 )
+region = Rect2( 128, 256, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 0, 128, 128, 128 )
+region = Rect2( 256, 256, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 128, 128, 128, 128 )
+region = Rect2( 384, 256, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 256, 128, 128, 128 )
+region = Rect2( 384, 256, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 384, 128, 128, 128 )
+region = Rect2( 256, 256, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 512, 128, 128, 128 )
+region = Rect2( 128, 256, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 640, 128, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 768, 128, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 896, 128, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 384, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 256, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=21]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 128, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 10 )
 region = Rect2( 0, 256, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 128, 128 )
 
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 128, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 256, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 384, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 512, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 640, 128, 128, 128 )
+
 [sub_resource type="AtlasTexture" id=24]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 0, 256, 128, 128 )
+region = Rect2( 768, 128, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 128, 256, 128, 128 )
+region = Rect2( 896, 128, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 10 )
-region = Rect2( 256, 256, 128, 128 )
+region = Rect2( 896, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=27]
 flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 384, 256, 128, 128 )
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 128, 128 )
 
 [sub_resource type="SpriteFrames" id=28]
 animations = [ {
-"frames": [ SubResource( 1 ) ],
-"loop": true,
-"name": "Dead",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": false,
 "name": "Demerging",
 "speed": 16.0
 }, {
-"frames": [ SubResource( 10 ) ],
-"loop": true,
-"name": "Default",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": false,
-"name": "Emerging",
-"speed": 16.0
+"name": "MouthClose",
+"speed": 10.0
 }, {
-"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": false,
 "name": "MouthOpen",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 23 ) ],
+"frames": [ SubResource( 17 ) ],
 "loop": true,
 "name": "Closed",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
 "loop": false,
-"name": "MouthClose",
-"speed": 10.0
+"name": "Emerging",
+"speed": 16.0
+}, {
+"frames": [ SubResource( 26 ) ],
+"loop": true,
+"name": "Default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 27 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=29]
@@ -241,15 +240,6 @@ Hoop = ExtResource( 5 )
 Bullet = ExtResource( 6 )
 Explosion = ExtResource( 2 )
 
-[node name="ringSprite" parent="Hamrayah" index="3"]
-frame = 2
-
-[node name="ringSprite2" parent="Hamrayah" index="4"]
-frame = 2
-
-[node name="ringSprite3" parent="Hamrayah" index="5"]
-frame = 2
-
 [node name="PauseTimer" parent="Hamrayah" index="7"]
 wait_time = 0.75
 
@@ -264,15 +254,6 @@ Explosion = ExtResource( 2 )
 
 [node name="GolemSprite" parent="Mord" index="0"]
 frames = SubResource( 28 )
-
-[node name="ringSprite" parent="Mord" index="3"]
-frame = 2
-
-[node name="ringSprite2" parent="Mord" index="4"]
-frame = 2
-
-[node name="ringSprite3" parent="Mord" index="5"]
-frame = 2
 
 [node name="PauseTimer" parent="Mord" index="7"]
 wait_time = 0.5

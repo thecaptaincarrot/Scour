@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Enemies/ObsoletedEnemies/BasicGolem.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Levels/LevelTemplate.gd" type="Script" id=2]
-
-
+[ext_resource path="res://Levels/Level4.gd" type="Script" id=1]
+[ext_resource path="res://Enemies/GunnerGolem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/WalkingGolem1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/TurretEnemy1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/RunnerGolem1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemies/Bosses/Chakyanel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Tiles/Arcology.tscn" type="PackedScene" id=7]
 
 [node name="LevelTemplate" type="Node2D"]
-script = ExtResource( 2 )
-BasicGolem = ExtResource( 1 )
+script = ExtResource( 1 )
+BasicGolem = ExtResource( 3 )
+Turret = ExtResource( 4 )
+Runner = ExtResource( 5 )
+ShootyGolem = ExtResource( 2 )
+MimicAngel = ExtResource( 6 )
+Arcology = ExtResource( 7 )
 
 [node name="WaveSpawnTimer" type="Timer" parent="."]
 wait_time = 10.0

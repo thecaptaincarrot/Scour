@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://HUD/AchievementDescription.gd" type="Script" id=1]
+
+[node name="AchievementDescription" type="Panel"]
+margin_left = -37.9261
+margin_top = 7.0
+margin_right = 460.074
+margin_bottom = 385.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 497.0
+margin_bottom = 332.0
+autowrap = true
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -44.0001
+margin_top = -42.1719
+margin_right = 44.9999
+margin_bottom = -16.1719
+text = "Return"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

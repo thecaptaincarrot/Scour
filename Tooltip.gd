@@ -1,4 +1,4 @@
-extends Line2D
+extends Panel
 
 
 # Declare member variables here. Examples:
@@ -13,10 +13,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#lerp alpha channel to zero, transparent out
-	set_point_position(1, get_parent().angel.position - get_parent().position)
-	if default_color.a >= 0:
-		show()
-		default_color.a -= delta
-	else:
-		hide()
+	pass
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		rect_global_position = event.position
+		rect_global_position.y -= 38

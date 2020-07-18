@@ -103,6 +103,7 @@ func get_level_from_main():
 	recoveryspeedlevel = MainNode.recoveryspeedlevel
 
 func update_costs():
+	get_level_from_main()
 	killspeed_cost = killspeed_cost_dict[killspeedlevel]
 	speed_cost = speed_cost_dict[speedlevel]
 	recoveryspeed_cost = recoveryspeed_cost_dict[recoveryspeedlevel]
@@ -115,6 +116,7 @@ func _on_KillSpeed_pressed():
 	
 	if MainNode.favor >= killspeed_cost:
 		killspeedlevel += 1
+		MainNode.killspeedlevel += 1
 		MainNode.favor -= killspeed_cost
 		
 		MainNode.player_killspeed = killspeed[killspeedlevel]
@@ -131,6 +133,7 @@ func _on_Speed_pressed():
 	
 	if MainNode.favor >= speed_cost:
 		speedlevel += 1
+		MainNode.speedlevel += 1
 		MainNode.favor -= speed_cost
 		
 		MainNode.player_speed = speed[speedlevel]
@@ -146,6 +149,7 @@ func _on_RecoverySpeed_pressed():
 	
 	if MainNode.favor >= recoveryspeed_cost:
 		recoveryspeedlevel += 1
+		MainNode.recoveryspeedlevel += 1
 		MainNode.favor -= recoveryspeed_cost
 		
 		MainNode.player_recoveryspeed = recoveryspeed[recoveryspeedlevel]
@@ -161,6 +165,7 @@ func _on_Bounce_pressed():
 		
 	if MainNode.favor >= bounce_cost:
 		bouncelevel += 1
+		MainNode.bouncelevel += 1
 		MainNode.favor -= bounce_cost
 		
 		MainNode.player_bounce = bounce[bouncelevel]

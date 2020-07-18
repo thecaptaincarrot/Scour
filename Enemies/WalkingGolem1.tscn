@@ -10,42 +10,42 @@
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 0, 192, 64, 64 )
+region = Rect2( 0, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 64, 192, 64, 64 )
+region = Rect2( 0, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 128, 192, 64, 64 )
+region = Rect2( 64, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 192, 192, 64, 64 )
+region = Rect2( 128, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 256, 192, 64, 64 )
+region = Rect2( 192, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 320, 192, 64, 64 )
+region = Rect2( 256, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 384, 192, 64, 64 )
+region = Rect2( 320, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 0, 64, 64, 64 )
+region = Rect2( 384, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
@@ -83,15 +83,15 @@ region = Rect2( 0, 64, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
-"loop": false,
-"name": "Dead",
-"speed": 10.0
-}, {
-"frames": [ SubResource( 8 ) ],
+"frames": [ SubResource( 1 ) ],
 "loop": true,
 "name": "Dying",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": false,
+"name": "Dead",
+"speed": 10.0
 }, {
 "frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
@@ -164,7 +164,12 @@ position = Vector2( 0.632859, -13.7606 )
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -10.0
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
 [connection signal="animation_finished" from="GolemSprite" to="." method="Kill_My_Self"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
 [connection signal="finished" from="DeathSound" to="." method="_on_DeathSound_finished"]
+[connection signal="finished" from="ShootSound" to="." method="_on_DeathSound_finished"]

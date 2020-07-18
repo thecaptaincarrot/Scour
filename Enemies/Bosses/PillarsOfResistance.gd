@@ -17,6 +17,8 @@ onready var Hamrayah = $Hamrayah
 
 #enum {ATTACKING, EMERGING, UNDER, STUNNED, HURT}
 
+var do_once = true
+
 var mord_state
 var ham_state
 
@@ -108,8 +110,10 @@ func _process(delta):
 					ham_hole = randi() % 4
 				Hamrayah.position = porthole_locations[ham_hole]
 				Hamrayah.state = Hamrayah.UNDER
-			if Mord.state == Mord.DEAD and Hamrayah.state == Hamrayah.DEAD:
+			if Mord.state == Mord.DEAD and Hamrayah.state == Hamrayah.DEAD and do_once:
+				do_once = false
 				$TurretSpawnTimer.stop()
+				MainNode.score_up(50)
 				emit_signal("Boss_Defeated")
 
 

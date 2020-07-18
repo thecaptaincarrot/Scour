@@ -24,27 +24,27 @@ func _process(_delta):
 
 
 func Spawn_Next_Wave():
-	print ("Ding")
 	match wave_number:
 		0:
-			Small_Line()
+			Small_Shooter_Line()
 		1:
 			flanks()
-			single_turret()
+			center_turrets()
 		2:
 			center_turrets_less()
-			Basic_Eight()
+			Linebackers()
 		3:
-			center_compliment()
-		4:
-			center_turrets()
 			flying_vee()
-			Small_Line()
-		5:
-			Basic_Eight()
+			single_turret()
+			Small_Shooter_Line()
+		4:
 			corner_turrets()
+			Linebackers()
+		5:
+			Linebackers()
+			gun_flanks()
 		6:
-			Pillars_Boss_Fight()
+			level_end()
 
 	
 	wave_number += 1

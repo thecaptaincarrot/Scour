@@ -1,0 +1,188 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/BasicFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://HUD/AchievementsPanel.gd" type="Script" id=2]
+[ext_resource path="res://HUD/AchievementDescription.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.152941, 0.152941, 0.152941, 0.709804 )
+
+[node name="Achievements" type="Panel"]
+margin_right = 425.0
+margin_bottom = 403.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -156.5
+margin_right = 156.5
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "Achievements"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level1" type="Button" parent="."]
+margin_left = 7.73505
+margin_top = 48.2386
+margin_right = 419.735
+margin_bottom = 84.2386
+disabled = true
+text = "Beat Level 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level2" type="Button" parent="."]
+margin_left = 7.735
+margin_top = 98.239
+margin_right = 419.735
+margin_bottom = 134.239
+disabled = true
+text = "Beat Level 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level3" type="Button" parent="."]
+margin_left = 7.735
+margin_top = 148.239
+margin_right = 419.735
+margin_bottom = 184.239
+disabled = true
+text = "Beat Level 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level4" type="Button" parent="."]
+margin_left = 7.735
+margin_top = 198.239
+margin_right = 419.735
+margin_bottom = 234.239
+disabled = true
+text = "Beat Level 4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level5" type="Button" parent="."]
+margin_left = 7.735
+margin_top = 248.239
+margin_right = 419.735
+margin_bottom = 284.239
+disabled = true
+text = "Beat The Pillars of Resistance without upgrades"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level6" type="Button" parent="."]
+margin_left = 7.735
+margin_top = 298.239
+margin_right = 419.735
+margin_bottom = 334.239
+disabled = true
+text = "Beat Humanity's Greatest Transgression without Upgrades"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -36.5
+margin_top = -52.0
+margin_right = 43.5
+margin_bottom = -20.0
+text = "Return"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AchievementDescription1" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="Label" parent="AchievementDescription1" index="0"]
+text = "
+THE LORD said \"You are my chosen people, you Tribesmen of Adam. As long as you keep our covenant and follow my laws you will be the sole inheritors of the world. The Tribes of Men will bow before you. All the wild beasts of the land and the birds of the air and the fish of the oceans will be yours for the taking, so that your children and your children's children and your children's children's children will live comfortably and flourish.\"
+
+THE LORD said \"You are my chosen people, you Tribesmen of Adam. As long as you keep our covenant and follow my laws you will be the sole inheritors of the world. All the dust of the ground and the stones of the earth will rise up to serve you and you will give them names and purpose. I give this to you now, the first Arcology here at Babel. This tower will stand as a monument of your devotion to me and my promise to you that you shall be closer to the heavens than any other tribe of men. And you will live with in it, as will your children and your children's children and your children's children's children who may spread through the world and construct 40 times 40 arcologies in my name."
+
+[node name="AchievementDescription2" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="Label" parent="AchievementDescription2" index="0"]
+text = "
+Gibol was the first of the prophets, and it was him who first built his covenant with THE LORD and was given the Technomantic gift. Gibol went back to his tribe and gave each a knife and directed them to make the covenantn with THE LORD as he had. When this was done, Gibol said \"The Holy Name has been revealed to me, and now I give this power to you, my tribe. As we were made from the clay of the earth, so shall we make our own servants that they may serve us in the way that we serve THE LORD. And our covenant with these servants shall be that of Holy Word and Law.\"
+
+And Gibol took from the clay of the earth and made it into the shape of a man. And Gibol wrote the laws and name of that shape and put it into the shape using the Technomantic Gift that was given to him by his covenant with THE LORD. And Gibol remembered his covenant with THE LORD as he used his gift at the shape became animate: the First Golem. Gibol and his Tribe would make many golems, but The First was the most holy."
+
+[node name="AchievementDescription3" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="Label" parent="AchievementDescription3" index="0"]
+text = "
+The men and women and children of the arcology defaced the shrines of THE LORD with the name of BRZ, who was a cainite deity whom they favored and worshipped in secret and cast the remaining faithful from the upper floors. And THE LORD took those who had fallen and took them up into THE THRONE and asked them \"What has become of my people? Why has the covenant been broken?\"
+
+And the faithful told THE LORD of what his chosen people had done and he became angry. And so THE LORD GOD said \"Let  their be a great scouring of the earth. Let the very stone of their towers burst into flame. Let their golems be ground back into dust and their names destroyed. And they will remember who is THE LORD.\"
+
+And God commanded his angels.
+And it was done."
+
+[node name="AchievementDescription4" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="Label" parent="AchievementDescription4" index="0"]
+text = "
+For 40 times 40 months the Tribe of Adam did not set foot on the surface of the earth. They skulked amongst the ruins of the arcologies like the creeping things of the earth, so fallen were they, the gift of Technomancy plucked from their brow by THE LORD. And the earth was retaken by those tribes who were not the people of THE LORD: The Cainites, and the Karakeemites and the other malice tribes of the Wastes. They made their foul living in the blasted ground of the earth and built great cities where before the Tribe of Adam held dominion.
+
+And after 40 times 40 months THE LORD's heart did soften. And he remade his covenant with those who still kept theirs after so much time of darkness. \"You few who have survived my wrath and still kept covenant\" THE LORD said \"I return to you the gift first given to Gibol: That of Technomancy and the other Seven Mysteries. But I have not forgotten your transgressions. Only those mightiest among you will be able to use the gifts, and they shall be the leaders of your tribe for they are favored by THE LORD and may know the Holy Name.\""
+
+[node name="AchievementDescription5" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="Label" parent="AchievementDescription5" index="0"]
+margin_right = 496.0
+text = "
+And Jed, who was the technomancer of the Tonan arcology, placed the first stone onto the pillar, saying \"Les us all contribute to this construction, for if we are to act in rebellion then let us each share in that rebellion and the blame of it.\" and the men and women and schildren of Tonan each placed a stone upon the pillar until it was done. And Jed wrote the laws and name of the pillar of \"Hamrayah,\" for it was a first act of resistance.
+
+And Jed placed the first stone onto a second pillar saying \"We are of one mind and purpose, and let our protectors have company of their own. Just as we were created, so we now create and give our creations their own act of creation and so we are as THE LORD.\" And the menial golems of Tonan each placed a stone upon the pillar until it was done. And Jed wrote the laws and the name of the pillar as \"Mord.\" For it was a last act of defiance."
+
+[node name="AchievementDescription6" parent="." instance=ExtResource( 3 )]
+
+[node name="Label" parent="AchievementDescription6" index="0"]
+text = "
+The wisemen of the Arcology of Michael studied the Holy Name and teased out its secrets and they wrote new names of things that did not yet exist. And they wrote a blasphemous name of great power that had not been written before and when they spoke the profanity it created an unholy thing of grace and they named it so. And they built shrines and temples to the unholy thing and used its name in prayers that were once meant only for THE LORD.
+
+\"See\" the wisemen said \"We create a new covenant with this Thing of Glory that answered our call when we named it so! See that we no longer need the Holy Name for we have learned the mysteries of Names that do not yet exist!\"
+
+But THE LORD heard when the profanity was spoken, and his heart was filled with rage and he knew that the covenant with the Tribe of Adam was broken and that no mercy would follow."
+[connection signal="pressed" from="Level1" to="AchievementDescription1" method="_on_Level1_pressed"]
+[connection signal="pressed" from="Level2" to="AchievementDescription2" method="_on_Level2_pressed"]
+[connection signal="pressed" from="Level3" to="AchievementDescription3" method="_on_Level3_pressed"]
+[connection signal="pressed" from="Level4" to="AchievementDescription4" method="_on_Level4_pressed"]
+[connection signal="pressed" from="Level5" to="AchievementDescription5" method="_on_Level5_pressed"]
+[connection signal="pressed" from="Level6" to="AchievementDescription6" method="_on_Level6_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+[editable path="AchievementDescription1"]
+
+[editable path="AchievementDescription2"]
+
+[editable path="AchievementDescription3"]
+
+[editable path="AchievementDescription4"]
+
+[editable path="AchievementDescription5"]
+
+[editable path="AchievementDescription6"]

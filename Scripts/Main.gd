@@ -38,14 +38,14 @@ const SCROLL_SPEED = 75.0
 
 #Upgrade information
 const KILLSPEED_VALUES = {1: 33.33, 2 : 50, 3 :  62.5, 4 : 83.3333}
-const SPEED_VALUES = {1 : 400 , 2 : 500, 3: 800, 4: 700 }
+const SPEED_VALUES = {1 : 300 , 2 : 350, 3: 400, 4: 450 }
 const RECOVERY_VALUES = {1 : 50.0, 2 : 75.0, 3 : 100, 4: 125}
 const BOUNCE_VALUES = {1 : 0, 2 : 1, 3 : 2, 4 : 3}
 
-const KILLSPEED_COST = {1 : 10, 2 : 25, 3 : 75, 4 : 125}
-const SPEED_COST = {1 : 10, 2 : 25, 3 : 75, 4 : 125}
-const RECOVERYSPEED_COST = {1 : 10, 2 : 25, 3 : 75, 4 : 125}
-const BOUNCE_COST = {1 : 10, 2 : 25, 3 : 75, 4 : 125}
+const KILLSPEED_COST = {1 : 25, 2 : 50, 3 : 75, 4 : 100}
+const SPEED_COST = {1 : 5, 2 : 15, 3 : 30, 4 : 60}
+const RECOVERYSPEED_COST = {1 : 10, 2 : 20, 3 : 40, 4 : 75}
+const BOUNCE_COST = {1 : 10, 2 : 20, 3 : 30, 4 : 40}
 
 var killspeedlevel = 1
 var bouncelevel = 1
@@ -60,11 +60,11 @@ var player_recoveryspeed
 
 var pre_cutscene_position = Vector2(0,0)
 
-var music_volume = 0
-var sound_volume = 0
+var music_volume = 5
+var sound_volume = 5
 #Saved Variables
 var highscores = {"1" : ["Abram" , 20000], "2" : ["Ishaq" , 10000], "3" : ["Yaqub" , 5000], "4" : ["Yosef" , 2500] , "5" : ["Moesha" , 1000]}
-var achievements = {}
+var achievements = {"Level1": false, "Level2" : false, "Level3" : false, "Level4" : false, "Pillars" : false, "Angel" : false}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -199,6 +199,20 @@ func score_up(value):
 
 
 func go_to_next_level():
+	if level == 1:
+		achievements["Level1"] = true
+	elif level == 2:
+		achievements["Level2"] = true
+	elif level == 3:
+		achievements["Level3"] = true
+	elif level == 4:
+		achievements["Level4"] = true
+	
+	if level == 2 and killspeedlevel == 1 and recoveryspeedlevel == 1 and speedlevel == 1 and bouncelevel == 1:
+		achievements["Pillars"] = true
+	elif level == 4 and killspeedlevel == 1 and recoveryspeedlevel == 1 and speedlevel == 1 and bouncelevel == 1:
+		achievements["Angel"] = true
+	
 	level += 1
 	$UpgradeScreen.hide()
 	$Mobs.show()
@@ -215,26 +229,31 @@ func go_to_next_level():
 		
 	elif level == 3:
 		create_level(level3)
-		$Thanks.show()
 		
 	elif level == 4:
 		create_level(level4)
 		
 	elif level == 5:
-		create_level(level5)
+		$Background.state = $Background.STOPPED
 		
-	elif level == 6:
-		create_level(level6)
 		
 	persistant_player.position.x = screen_size.x / 2
 	persistant_player.position.y = screen_size.y * 3 / 4
 	persistant_player.state = persistant_player.FINE
 	state = GAME
+	
+	if level == 5:
+		game_over()
+		$GameOver/Panel/Continue.disabled = true
 
 
 func go_to_upgrade_screen():
 	clear_levels()
 	clear_screen()
+	
+	if level == 4:
+		go_to_next_level()
+		return
 	
 	state = MENU
 	
@@ -263,7 +282,7 @@ func boss_end_cutscene_start():
 		persistant_player.state = persistant_player.DISABLED
 		persistant_player.rings = 3
 		pre_cutscene_position = persistant_player.position
-		state = CUTSCENE
+		state = BOSSCUTSCENE
 
 
 func create_level(targetlevel):
@@ -323,10 +342,14 @@ func clear_levels():
 func game_over():
 	$GameOver.show()
 	$GameOver.update_score()
+	$GameOver/Panel/Continue.disabled = false
 	
 	$GameOver.update_highscore_text()
 	
 	save_data()
+	
+	clear_screen()
+	$Background.state = $Background.STOPPED
 	
 	if score > highscores["5"][1]:
 		#disable game over buttons
@@ -498,12 +521,16 @@ func shift_scores(place):
 
 
 func save_data():
-	var save_dict = {"HighScores" : highscores #will this work?
-	#add achievement information
+	var save_dict = {"HighScores" : highscores, #will this work?
 	}
 	
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)
+	
+	save_game.store_line(to_json(save_dict))
+	
+	save_dict = {"Achievements" : achievements, #will this work?
+	}
 	
 	save_game.store_line(to_json(save_dict))
 	
@@ -521,9 +548,28 @@ func load_data():
 	
 	highscores = parse_json(save_game.get_line())["HighScores"]
 	
+	achievements = parse_json(save_game.get_line())["Achievements"]
+	
 	print("High Scores Loaded:")
 	print(highscores)
-
+	print("Achievements Loaded:")
+	print(achievements)
 
 func _on_HighScores_pressed():
 	$HighScoreWindow.show()
+
+
+func _on_Achievementts_pressed():
+	if achievements["Level1"]:
+		$Achievements/Level1.disabled = false
+	if achievements["Level2"]:
+		$Achievements/Level2.disabled = false
+	if achievements["Level3"]:
+		$Achievements/Level3.disabled = false
+	if achievements["Level4"]:
+		$Achievements/Level4.disabled = false
+	if achievements["Pillars"]:
+		$Achievements/Level5.disabled = false
+	if achievements["Angel"]:
+		$Achievements/Level6.disabled = false
+	$Achievements.show()
